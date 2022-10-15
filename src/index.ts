@@ -1,4 +1,5 @@
 import { initServer } from '@controllers/initServer';
+import http from 'http';
 
 const PORT = process.env.PORT || 8080;
 
@@ -8,7 +9,8 @@ function listenCallback() {
 
 async function openServer() {
   const app = initServer();
-  app.listen(PORT, listenCallback);
+  const server = http.createServer(app);
+  server.listen(PORT, listenCallback);
 }
 
 openServer();
