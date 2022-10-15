@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@src/*": ["./src/*"],
+      "@controllers/*": ["./src/controllers/*"],
+      "@models/*": ["./src/models/*"],
+      "@utils/*": ["./src/utils/*"]
+    },
+    "target": "es2016", // javascript 버전 (브라우저에 맞추는 것이 보통)f
+    "module": "commonjs", // commonjs 또는 module 설정
+    "esModuleInterop": true, // commonjs 환경에서도 es6 module을 쓸 수 있게 트랜스파일링 해줌
+    "forceConsistentCasingInFileNames": false, // 파일의 대소문자 구분하여 import
+    "strict": true, // strict mode 활성화
+    "skipLibCheck": true // d.ts 파일 (선언 파일) 에 타입 체킹 비활성화
+  },
+  "include": ["./src"]
+}
