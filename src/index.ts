@@ -19,7 +19,7 @@ async function openServer() {
     },
   });
   io.on('connection', (socket) => {
-    socket.on('connection', () => console.log('client connected'));
+    socket.on('newClient', () => io.emit('initialChatList', messageArr));
     socket.on('message', ({ name, message }) => {
       messageArr.push(`[${name}]: ${message}`);
       io.emit('messageList', messageArr);
