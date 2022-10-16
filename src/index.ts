@@ -19,10 +19,13 @@ async function openServer() {
     },
   });
   io.on('connection', (socket) => {
+    socket.on('connection', () => console.log('client connected'));
     socket.on('message', ({ name, message }) => {
-      console.log(message);
-      io.emit('messageList', messageArr);
       messageArr.push(`[${name}]: ${message}`);
+      io.emit('messageList', messageArr);
+    });
+    socket.on('disconnect', () => {
+      console.log('client disconnected. bye...');
     });
   });
   server.listen(PORT, listenCallback);
